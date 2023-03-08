@@ -2,26 +2,6 @@
 ![PEP](https://github.com/inventree/inventree-python/actions/workflows/pep.yaml/badge.svg)
 
 
-# inventree-brother-plugin
+# inventree-brotherqlwebapi-plugin
 
-A label printing plugin for [InvenTree](https://inventree.org), which provides support for the [Brother label printers](https://www.brother.com.au/en/products/all-labellers/labellers).
-
-This plugin supports printing to *some* Brother label printers with network (wired or WiFi) support. Refer to the [brother_ql docs](https://github.com/pklaus/brother_ql/blob/master/brother_ql/models.py) for a list of label printers which are directly supported.
-
-## Installation
-
-Install this plugin manually as follows:
-
-```
-pip install inventree-brother-plugin
-```
-
-Or, add to your `plugins.txt` file to install automatically using the `invoke install` command:
-
-```
-inventree-brother-plugin
-```
- 
-## Configuration Options
-
-**TODO**
+This is a fork of [inventree-brother-plugin](https://github.com/inventree/inventree-brother-plugin) to support printing on Brother printers via [brother_ql_web](https://github.com/tbnobody/brother_ql_web) API. Idea was that with this setup is also possible to print on cheaper USB printers without network connection.
