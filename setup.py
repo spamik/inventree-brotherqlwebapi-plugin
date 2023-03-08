@@ -2,22 +2,22 @@
 
 import setuptools
 
-from inventree_brother.version import BROTHER_PLUGIN_VERSION
+from inventree_brother_webapi.version import BROTHER_PLUGIN_VERSION
 
 with open('README.md', encoding='utf-8') as f:
     long_description = f.read()
 
 
 setuptools.setup(
-    name="inventree-brother-plugin",
+    name="inventree-brotherqlwebapi-plugin",
 
     version=BROTHER_PLUGIN_VERSION,
 
-    author="Oliver Walters",
+    author="Jan Krajdl",
 
-    author_email="oliver.henry.walters@gmail.com",
+    author_email="spm@spamik.cz",
 
-    description="Brother label printer plugin for InvenTree",
+    description="Brother label printer plugin (via web API) for InvenTree",
 
     long_description=long_description,
 
@@ -25,7 +25,7 @@ setuptools.setup(
 
     keywords="inventree label printer printing inventory",
 
-    url="https://github.com/inventree/inventree-brother-plugin",
+    url="https://github.com/spamik/inventree-brotherqlwebapi-plugin",
 
     license="MIT",
 
@@ -33,6 +33,7 @@ setuptools.setup(
 
     install_requires=[
         'brother-ql-inventree',
+        'requests'
     ],
 
     setup_requires=[
@@ -44,7 +45,7 @@ setuptools.setup(
 
     entry_points={
         "inventree_plugins": [
-            "BrotherLabeLPlugin = inventree_brother.brother_plugin:BrotherLabelPlugin"
+            "BrotherWebAPILabelPlugin = inventree_brother_webapi.brother_plugin:BrotherWebAPILabelPlugin"
         ]
     },
 )
