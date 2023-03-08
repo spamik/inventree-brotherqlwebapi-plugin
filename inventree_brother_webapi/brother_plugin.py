@@ -95,7 +95,11 @@ class BrotherLabelPlugin(LabelPrintingMixin, SettingsMixin, InvenTreePlugin):
             'print_count': 1,
             'orientation': self.get_setting('ROTATION'),
             'cut_once': int(not self.get_setting('AUTO_CUT')),
-            'label_size': self.get_setting('LABEL')
+            'label_size': self.get_setting('LABEL'),
+            'margin_left:': 0,
+            'margin_right': 0,
+            'margin_top': 0,
+            'margin_bottom': 0
         }
 
         requests.post(api_url, data=params, files={'image': ('label.png', img_bytes)})
