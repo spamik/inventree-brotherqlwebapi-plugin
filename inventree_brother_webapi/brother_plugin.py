@@ -96,7 +96,7 @@ class BrotherLabelPlugin(LabelPrintingMixin, SettingsMixin, InvenTreePlugin):
             'orientation': self.get_setting('ROTATION'),
             'cut_once': int(not self.get_setting('AUTO_CUT')),
             'label_size': self.get_setting('LABEL'),
-            'margin_left:': 0,
+            'margin_left': 0,
             'margin_right': 0,
             'margin_top': 0,
             'margin_bottom': 0
