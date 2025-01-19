@@ -5,7 +5,7 @@ Supports printing of labels via brother_ql_web API
 
 
 # translation
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from plugins.inventree_brother_webapi.version import BROTHER_PLUGIN_VERSION
 
@@ -85,6 +85,10 @@ class BrotherLabelPlugin(LabelPrintingMixin, SettingsMixin, InvenTreePlugin):
         img_bytes = io.BytesIO()
         label_image.save(img_bytes, format='PNG')
         img_bytes = img_bytes.getvalue()
+        print_color = 'black'
+
+        if self.get_setting('LABEL') == '62red':
+            print_color = 'red'
 
         # Read settings
         api_url = self.get_setting('API_URL') + '/labeldesigner/api/print'
@@ -99,7 +103,8 @@ class BrotherLabelPlugin(LabelPrintingMixin, SettingsMixin, InvenTreePlugin):
             'margin_left': 0,
             'margin_right': 0,
             'margin_top': 0,
-            'margin_bottom': 0
+            'margin_bottom': 0,
+            'print_color': print_color
         }
 
         requests.post(api_url, data=params, files={'image': ('label.png', img_bytes)})
